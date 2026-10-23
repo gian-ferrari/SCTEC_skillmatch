@@ -1,5 +1,5 @@
 const candidatos = require("./bd_candidatos");
-const vagas = require("./db_vagas");
+const vagas = require("./bd_vagas");
 const Vaga = require("./vaga");
 
 function buscaCandidatos() {
@@ -28,3 +28,14 @@ function buscaVagas() {
     }, 2000);
   });
 }
+
+async function main() {
+  const vagasResponse = await buscaVagas();
+  const listaVagas = vagasResponse.map(
+    (vagaObj) => new Vaga(vagaObj.empresa, vagaObj.cargo, vagaObj.requisitos),
+  );
+
+  console.log(listaVagas);
+}
+
+main();
