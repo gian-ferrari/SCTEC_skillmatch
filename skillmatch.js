@@ -1,6 +1,7 @@
 const candidatos = require("./bd_candidatos");
 const vagas = require("./bd_vagas");
 const Vaga = require("./vaga");
+const VagaComExperiencia = require("./vaga_com_experiencia");
 
 function buscaCandidatos() {
   return new Promise((resolve, reject) => {
@@ -32,11 +33,19 @@ function buscaVagas() {
 
 async function main() {
   const vagasResponse = await buscaVagas();
-  const listaVagas = vagasResponse.map(
-    (vagaObj) => new Vaga(vagaObj.empresa, vagaObj.cargo, vagaObj.requisitos),
-  );
 
-  //console.log(listaVagas);
+  const listaVagas = vagasResponse.map((vagaObj) => {
+    if (vagaObj.experienciaMinimaAnos !== undefined) {
+      return new VagaComExperiencia(
+        vagaObj.empresa,
+        vagaObj.cargo,
+        vagaObj.requisitos,
+        vagaObj.experienciaMinimaAnos,
+      );
+    } else {
+      return new Vaga(vagaObj.empresa, vagaObj.cargo, vagaObj.requisitos);
+    }
+  });
 
   const candidatosDisponiveis = await buscaCandidatos();
 
@@ -52,7 +61,13 @@ async function main() {
     listaVagas.forEach((vaga) => {
       console.log(`Vaga: ${vaga.cargo}`);
       console.log(`Empresa: ${vaga.empresa}`);
+
       vaga.compararCompatibilidade(candidato.habilidades);
+
+      if (vaga.tipo === "Com experiência") {
+        vaga.verificarExperiencia(candidato);
+      }
+
       console.log("------");
     });
   });

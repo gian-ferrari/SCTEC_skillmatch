@@ -13,6 +13,7 @@ const vagas = [
     empresa: "XY Tecnologia LTDA",
     cargo: "Desenvolvedor Front-end",
     requisitos: ["HTML", "CSS", "JavaScript", "React"],
+    experienciaMinimaAnos: 2,
   },
 ];
 
