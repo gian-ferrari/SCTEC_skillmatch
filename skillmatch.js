@@ -33,8 +33,6 @@ function buscaVagas() {
 
 async function main() {
   const vagasResponse = await buscaVagas();
-
-<<<<<<< HEAD
   const listaVagas = vagasResponse.map((vagaObj) => {
     if (vagaObj.experienciaMinimaAnos !== undefined) {
       return new VagaComExperiencia(
@@ -48,14 +46,11 @@ async function main() {
     }
   });
 
-=======
-  //console.log(listaVagas);
->>>>>>> 8ebdbe8e00e60f3137c7164f82c9764df94642a4
   const candidatosDisponiveis = await buscaCandidatos();
-
   console.log("Comparando candidatos com as vagas...");
   candidatosDisponiveis.forEach((candidato) => {
     console.log("");
+    console.log("==============================");
     console.log(`Candidato: ${candidato.nome}`);
     console.log(`Área de interesse: ${candidato.area}`);
     console.log("------");
@@ -68,15 +63,6 @@ async function main() {
       console.log(`Vaga: ${vaga.cargo}`);
       console.log(`Empresa: ${vaga.empresa}`);
 
-<<<<<<< HEAD
-      vaga.compararCompatibilidade(candidato.habilidades);
-
-      if (vaga.tipo === "Com experiência") {
-        vaga.verificarExperiencia(candidato);
-      }
-
-      console.log("------");
-=======
       const resultado = vaga.compararCompatibilidade(candidato.habilidades);
 
       if (resultado.percentual > maiorPercentual) {
@@ -85,8 +71,11 @@ async function main() {
         habilidadesFaltantes = resultado.faltantes;
       }
 
-      console.log("-----");
->>>>>>> 8ebdbe8e00e60f3137c7164f82c9764df94642a4
+      if (vaga.tipo === "Com experiência") {
+        vaga.verificarExperiencia(candidato);
+      }
+
+      console.log("------");
     });
 
     if (melhorVaga !== null) {
@@ -97,16 +86,18 @@ async function main() {
 
       if (habilidadesFaltantes.length > 0) {
         console.log(
-          `Recomendação de estudo: estudar ${habilidadesFaltantes[0]}.`,
+          `Recomendação de estudo: estudar ${habilidadesFaltantes.join(", ")}.`,
         );
       } else {
-        console.log("Você já possui todas as habilidades exigidas nessa vaga.");
+        console.log(
+          "Candidato possui todas as habilidades exigidas nessa vaga.",
+        );
       }
     } else {
       console.log("Nenhuma vaga disponível para comparação.");
     }
 
-    console.log("======");
+    console.log("==============================");
   });
 }
 

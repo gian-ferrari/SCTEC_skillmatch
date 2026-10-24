@@ -1,16 +1,16 @@
 const candidatos = [
   {
     nome: "Gian Ferrari",
-    area: "Desenvolvedor Front-end",
+    area: "Desenvolvedor de Software",
     habilidades: ["JavaScript"],
     tempoExperienciaAnos: 1,
   },
-/*   {
+  {
     nome: "Maria Silva",
-    area: "Desenvolvedor Front-end",
+    area: "Desenvolvedor de Software",
     habilidades: ["HTML", "CSS"],
     tempoExperienciaAnos: 2,
-  }, */
+  },
 ];
 
 module.exports = candidatos;
