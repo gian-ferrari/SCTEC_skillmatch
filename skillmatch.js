@@ -37,24 +37,52 @@ async function main() {
   );
 
   //console.log(listaVagas);
-
   const candidatosDisponiveis = await buscaCandidatos();
 
   console.log("Comparando candidatos com as vagas...");
-
   candidatosDisponiveis.forEach((candidato) => {
     console.log("");
-    console.log("***********************");
     console.log(`Candidato: ${candidato.nome}`);
     console.log(`Área de interesse: ${candidato.area}`);
     console.log("------");
 
+    let melhorVaga = null;
+    let maiorPercentual = -1;
+    let habilidadesFaltantes = [];
+
     listaVagas.forEach((vaga) => {
       console.log(`Vaga: ${vaga.cargo}`);
       console.log(`Empresa: ${vaga.empresa}`);
-      vaga.compararCompatibilidade(candidato.habilidades);
-      console.log("------");
+
+      const resultado = vaga.compararCompatibilidade(candidato.habilidades);
+
+      if (resultado.percentual > maiorPercentual) {
+        melhorVaga = vaga;
+        maiorPercentual = resultado.percentual;
+        habilidadesFaltantes = resultado.faltantes;
+      }
+
+      console.log("-----");
     });
+
+    if (melhorVaga !== null) {
+      console.log("VAGA COM MAIOR COMPATIBILIDADE");
+      console.log(`Vaga: ${melhorVaga.cargo}`);
+      console.log(`Empresa: ${melhorVaga.empresa}`);
+      console.log(`Compatibilidade: ${maiorPercentual.toFixed(1)}%`);
+
+      if (habilidadesFaltantes.length > 0) {
+        console.log(
+          `Recomendação de estudo: estudar ${habilidadesFaltantes[0]}.`,
+        );
+      } else {
+        console.log("Você já possui todas as habilidades exigidas nessa vaga.");
+      }
+    } else {
+      console.log("Nenhuma vaga disponível para comparação.");
+    }
+
+    console.log("======");
   });
 }
 
