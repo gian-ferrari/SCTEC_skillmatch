@@ -32,6 +32,29 @@ class Vaga {
     } else {
       console.log("Não falta nenhuma habilidade.");
     }
+
+    let percentual = 0;
+    let classificacao;
+    
+    if (this.requisitos.length > 0) {
+      percentual = (possui.length / this.requisitos.length) * 100;
+    }
+
+    if (percentual >= 80) {
+      classificacao = "Alta compatibilidade";
+    } else if (percentual >= 50) {
+      classificacao = "Média compatibilidade";
+    } else {
+      classificacao = "Baixa compatibilidade";
+    }
+
+    console.log(`Compatibilidade: ${percentual.toFixed(1)}%`);
+    console.log(`Classificação: ${classificacao}`);
+
+    return {
+      percentual: percentual,
+      faltantes: falta,
+    };
   }
 }
 
