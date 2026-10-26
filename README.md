@@ -65,7 +65,7 @@ O sistema recomenda a(s) habilidade(s) faltante(s) da vaga com maior compatibili
 
 - Quadro Kanban (Trello): **[https://trello.com/b/ziVv0DFX/sctecminiprojeto]**
 - Repositório público (GitHub): **[https://github.com/gian-ferrari/SCTEC_skillmatch]**
-- Vídeo: **[inserir link com acesso para visualização]**
+- Vídeo: **[https://youtu.be/xAGgMqYE2SY]**
 
 
 ## Autor

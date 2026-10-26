@@ -13,9 +13,9 @@ class VagaComExperiencia extends Vaga {
     console.log(`Experiência do candidato: ${candidato.tempoExperienciaAnos} ano(s).`);
 
     if (candidato.tempoExperienciaAnos >= this.experienciaVagaAnos) {
-      console.log("O candidato possui experiência da vaga.");
+      console.log("O candidato possui experiência para a vaga.");
     } else {
-      console.log("O candidato não possui a experiência vaga.");
+      console.log("O candidato não possui a experiência para vaga.");
     }
   }
 }
