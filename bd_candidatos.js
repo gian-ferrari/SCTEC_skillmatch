@@ -8,7 +8,7 @@ const candidatos = [
   {
     nome: "Maria Silva",
     area: "Desenvolvedor de Software",
-    habilidades: ["HTML", "CSS"],
+    habilidades: ["HTML", "css"],
     tempoExperienciaAnos: 2,
   },
 ];

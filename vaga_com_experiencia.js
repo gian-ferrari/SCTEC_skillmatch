@@ -1,21 +1,21 @@
 const Vaga = require("./vaga");
 
 class VagaComExperiencia extends Vaga {
-  constructor(empresa, cargo, requisitos, experienciaMinimaAnos) {
+  constructor(empresa, cargo, requisitos, experienciaVagaAnos) {
     super(empresa, cargo, requisitos);
-    this.experienciaMinimaAnos = experienciaMinimaAnos;
+    this.experienciaVagaAnos = experienciaVagaAnos;
     this.tipo = "Com experiência";
   }
 
   verificarExperiencia(candidato) {
     
-    console.log(`Experiência mínima exigida: ${this.experienciaMinimaAnos} ano(s).`);
+    console.log(`Experiência da Vaga: ${this.experienciaVagaAnos} ano(s).`);
     console.log(`Experiência do candidato: ${candidato.tempoExperienciaAnos} ano(s).`);
 
-    if (candidato.tempoExperienciaAnos >= this.experienciaMinimaAnos) {
-      console.log("O candidato atende à experiência mínima.");
+    if (candidato.tempoExperienciaAnos >= this.experienciaVagaAnos) {
+      console.log("O candidato possui experiência da vaga.");
     } else {
-      console.log("O candidato não atende à experiência mínima.");
+      console.log("O candidato não possui a experiência vaga.");
     }
   }
 }

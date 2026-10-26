@@ -10,7 +10,7 @@ O programa compara habilidades e requisitos, calcula a compatibilidade, identifi
 
 ## Funcionalidades
 
-- Carregar candidatos e vagas com simulação de busca em um servidor.
+- Carregar candidatos e vagas com simulação de busca em um servidor (cliente-servidor).
 - Comparar as habilidades de cada candidato com cada vaga.
 - Exibir habilidades compatíveis e faltantes.
 - Calcular e classificar o percentual de compatibilidade.
@@ -21,34 +21,27 @@ O programa compara habilidades e requisitos, calcula a compatibilidade, identifi
 
 ## Como executar
 
+Sistema foi desenvolvido com o VS Code e foi testado com o Node via terminal do VS Code. Segue instruções de como executar.
+
 1. Instale o Node.js.
 2. Baixe ou clone este repositório.
 3. Abra a pasta do projeto no VS Code.
 4. Abra o terminal na pasta que contém `skillmatch.js`.
 5. Execute:
 
-node skillmatch.js
+`node skillmatch.js`
 
-
-## Organização dos arquivos
-
-| Arquivo | Responsabilidade |
-|---|---|
-| `skillmatch.js` | Carregar dados, organizar comparações e apresentar resultados. |
-| `bd_candidatos.js` | Armazenar os perfis em um array de objetos. |
-| `bd_vagas.js` | Armazenar as vagas fictícias e os requisitos. |
-| `vaga.js` | Definir a classe `Vaga` e comparar habilidades. |
-| `vaga_com_experiencia.js` | Especializar `Vaga` com verificação de experiência mínima. |
-| `README.md` | Documentar o funcionamento e as decisões. |
 
 ## Regra de cálculo da compatibilidade
 
-Cada requisito possui o mesmo peso:
+Cada requisito possui o mesmo peso. A compatibilidade é calculada conforme a seguinte equação::
 
-Compatibilidade = (requisitos atendidos / total de requisitos) × 100
+`Compatibilidade = (requisitos atendidos / total de requisitos) × 100`
 
 
 ## Classificação
+
+Com base no valor obtido com o cálculo de compatibilidade, o candidato é classificado conforme a seguinte tabela.
 
 | Percentual calculado | Classificação |
 |---|---|
@@ -70,8 +63,8 @@ O sistema recomenda a(s) habilidade(s) faltante(s) da vaga com maior compatibili
 
 ## Links mini projeto
 
-- Quadro Kanban: **[inserir link]**
-- Repositório público: **[inserir link]**
+- Quadro Kanban (Trello): **[https://trello.com/b/ziVv0DFX/sctecminiprojeto]**
+- Repositório público (GitHub): **[https://github.com/gian-ferrari/SCTEC_skillmatch]**
 - Vídeo: **[inserir link com acesso para visualização]**
 
 
