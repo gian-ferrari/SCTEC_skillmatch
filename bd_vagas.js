@@ -2,7 +2,7 @@ const vagas = [
   {
     empresa: "JKL Tecnologia LTDA",
     cargo: "Desenvolvedor Front-end JR",
-    requisitos: ["HTML", "CSS", "JavaScript"],
+    requisitos: ["HTML", "css", "JavaScript", "git"],
   },
   {
     empresa: "ABC Tecnologia LTDA",
